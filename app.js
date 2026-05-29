@@ -175,7 +175,7 @@ function calcular() {
   setText("res-cuota-final", fmtARS(cuotaUlt));
   setText("res-cftea", fmtPct(cftea(i)));
 
-  generarTablaCuotas(Mcalculado, n, i, cuotaSinIva);
+  generarTablaCuotas(MCalculado, n, i, cuotaSinIva);
 
   setStatus("Simulación calculada.");
 
