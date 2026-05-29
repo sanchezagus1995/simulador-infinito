@@ -90,8 +90,8 @@ function cftea(i) {
 function readInputs() {
   const M = Number(getEl("monto")?.value || 0);
   const n = Number(getEl("plazo")?.value || 0);
-  const tna = Number(getEl("tna")?.value || 0);
-  return { M, n, tna };
+
+  return { M, n };
 }
 
 function clearTablaCuotas() {
