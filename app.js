@@ -114,19 +114,19 @@ function setStatus(msg) {
   setText("status", msg || "");
 }
 
-function generarTablaCuotas(M, n, i, cuotaSinIva) {
+function generarTablaCuotas(Mcalculado, n, i, cuotaSinIva) {
   const tbody = getEl("tabla-cuotas-body");
   if (!tbody) return;
 
   tbody.innerHTML = "";
 
-  let saldo = M;
+  let saldo = Mcalculado;
 
   for (let mes = 1; mes <= n; mes++) {
     const interes = saldo * i;
     const iva = interes * IVA;
     const capital = cuotaSinIva - interes;
-    const cargoExtra = mes === 1 ? M * 0.012 : 0;
+    const cargoExtra = mes === 1 ? Mcalculado * 0.012 : 0;
     const cuota = cuotaSinIva + iva + cargoExtra;
     const nuevoSaldo = Math.max(0, saldo - capital);
 
