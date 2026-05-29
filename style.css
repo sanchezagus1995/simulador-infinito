@@ -11,15 +11,17 @@ body {
 .wrap {
   max-width: 980px;
   margin: 24px auto;
-  padding: 0 16px;
+  padding: 0 16px 24px;
 }
 
 h1 {
   margin: 0 0 8px;
+  font-size: 28px;
 }
 
 h2 {
   margin: 0 0 12px;
+  font-size: 20px;
 }
 
 h3 {
@@ -35,7 +37,7 @@ h3 {
 }
 
 .card {
-  background: white;
+  background: #fff;
   border: 1px solid #e6e6e6;
   border-radius: 12px;
   padding: 16px;
@@ -45,20 +47,8 @@ h3 {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(150px, 1fr));
+  grid-template-columns: repeat(3, minmax(180px, 1fr));
   gap: 12px;
-}
-
-@media (max-width: 920px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 520px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 label {
@@ -67,20 +57,12 @@ label {
   font-size: 14px;
 }
 
-input,
-select {
+input {
   padding: 10px 10px;
   border: 1px solid #d9d9d9;
   border-radius: 10px;
   font-size: 14px;
   background: #fff;
-  color: #111;
-}
-
-input[readonly] {
-  background: #f3f4f6;
-  color: #555;
-  cursor: not-allowed;
 }
 
 .row {
@@ -106,82 +88,121 @@ button.ghost {
 
 .status {
   margin-top: 10px;
+  font-size: 14px;
 }
 
-.kpis {
+/* bloque resultado */
+.resultado-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(190px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(4, minmax(160px, 1fr));
+  gap: 10px;
+  margin-bottom: 18px;
 }
 
-@media (max-width: 920px) {
-  .kpis {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 520px) {
-  .kpis {
-    grid-template-columns: 1fr;
-  }
-}
-
-.kpi {
+.metric-card {
   border: 1px solid #eee;
   border-radius: 12px;
   padding: 12px;
   background: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
-.kpi-label {
+.metric-label {
   font-size: 12px;
   color: #666;
-  line-height: 1.3;
 }
 
-.kpi-value {
+.metric-value {
   font-size: 20px;
   font-weight: 700;
   margin-top: 4px;
-  line-height: 1.2;
   word-break: break-word;
 }
 
-.table-wrap {
-  overflow: auto;
+/* tabla de cuotas */
+.tabla-cuotas-wrap {
+  margin-top: 4px;
+}
+
+.tabla-scroll {
+  overflow-x: auto;
   border: 1px solid #eee;
   border-radius: 12px;
 }
 
-table {
+.tabla-cuotas {
   width: 100%;
-  border-collapse: collapse;
   min-width: 900px;
+  border-collapse: collapse;
 }
 
-th,
-td {
+.tabla-cuotas th,
+.tabla-cuotas td {
   padding: 10px;
   border-bottom: 1px solid #eee;
   text-align: right;
   font-size: 13px;
 }
 
-th:first-child,
-td:first-child {
+.tabla-cuotas th:first-child,
+.tabla-cuotas td:first-child {
   text-align: center;
 }
 
-th {
+.tabla-cuotas th {
   background: #fafafa;
   position: sticky;
   top: 0;
   z-index: 1;
 }
 
+/* tabla BCRA compartida */
+.bcra-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 13px;
+}
+
+.bcra-table th,
+.bcra-table td {
+  padding: 10px 10px;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+}
+
+.bcra-table thead th {
+  background: #f3f5ff;
+  text-align: left;
+  font-weight: 700;
+}
+
+.bcra-table tbody tr:hover {
+  background: #fafbff;
+}
+
+@media (max-width: 920px) {
+  .resultado-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid,
+  .resultado-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  button {
+    width: 100%;
+  }
+}
 .row:first-child {
   margin-bottom: 8px;
 }
