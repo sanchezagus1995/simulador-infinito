@@ -7,16 +7,23 @@ body::before {
   position: fixed;
   inset: 0;
 
-  background-image: url("./eweweo.png");
+  background-image: url("./infinito.png");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 1200px;
+  background-size: 1600px;
 
-  opacity: 0.025;
+  opacity: 0.08;
 
   pointer-events: none;
   z-index: -1;
 }
+
+.logo-header{
+    width: 180px;
+    display:block;
+    margin:0 auto 20px auto;
+}
+
 body {
   margin: 0;
   background: #f6f7f9;
