@@ -146,7 +146,10 @@ function generarTablaCuotas(M, n, i, cuotaSinIva) {
 }
 
 function calcular() {
-  const { M, n, tna } = readInputs();
+  const { M, n } = readInputs();
+
+  const tna = 49.9; // fija
+  const MCalculado = M * 1.10; // +10% oculto
 
   if (!(M > 0) || !(n > 0) || tna < 0) {
     clearCalcUI();
@@ -156,13 +159,13 @@ function calcular() {
 
   const i = tasaMensualFromTNA(tna);
 
-  const cuotaSinIva = cuotaFijaSinIVA(M, n, i);
-  const interes1 = interesPrimerMes(M, i);
+  const cuotaSinIva = cuotaFijaSinIVA(MCalculado, n, i);
+  const interes1 = interesPrimerMes(MCalculado, i);
   const iva1 = ivaPrimerMes(interes1);
-  const cargoExtra = M * 0.012;
+  const cargoExtra = MCalculado * 0.012;
   const cuota1 = cuotaSinIva + iva1 + cargoExtra;
 
-  const saldoPrev = saldoPrevio(M, i, n);
+  const saldoPrev = saldoPrevio(MCalculado, i, n);
   const interesUlt = interesUltima(saldoPrev, i);
   const ivaUlt = ivaUltima(interesUlt);
   const cuotaUlt = saldoPrev + interesUlt + ivaUlt;
@@ -172,7 +175,7 @@ function calcular() {
   setText("res-cuota-final", fmtARS(cuotaUlt));
   setText("res-cftea", fmtPct(cftea(i)));
 
-  generarTablaCuotas(M, n, i, cuotaSinIva);
+  generarTablaCuotas(Mcalculado, n, i, cuotaSinIva);
 
   setStatus("Simulación calculada.");
 
