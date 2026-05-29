@@ -208,7 +208,7 @@ function calcular() {
 async function copiarResultado() {
   const monto = getEl("monto")?.value || "—";
   const plazo = getEl("plazo")?.value || "—";
-  const tna = getEl("tna")?.value || "—";
+  const tna = "49.9";
 
   const tnaTxt = getEl("res-tna")?.textContent || "—";
   const cuota1 = getEl("res-cuota1")?.textContent || "—";
