@@ -231,11 +231,12 @@ async function copiarResultado() {
   
   const texto = [
     "Simulación Sistema Francés",
-    "",
     `Monto: ${montoFmt}`,
     `Plazo: ${plazo} meses`,
-    "",
     `TNA: ${tnaTxt}`,
+    "",
+    "LA PRIMER CUOTA INCLUYE ITF IMPUESTO A TRANSACCIONES FINANCIERAS",
+    "",
     `Cuota 1: ${cuota1}`,
     `Cuota 2: ${cuota2}`,
     `Cuota final: ${cuotaFinal}`,
