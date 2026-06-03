@@ -164,7 +164,14 @@ function calcular() {
   const iva1 = ivaPrimerMes(interes1);
   const cargoExtra = MCalculado * 0.012;
   const cuota1 = cuotaSinIva + iva1 + cargoExtra;
-
+  
+  const capital1 = cuotaSinIva - interes1;
+  const saldoMes2 = MCalculado - capital1;
+  
+  const interes2 = saldoMes2 * i;
+  const iva2 = interes2 * IVA;
+  const cuota2 = cuotaSinIva + iva2;
+  
   const saldoPrev = saldoPrevio(MCalculado, i, n);
   const interesUlt = interesUltima(saldoPrev, i);
   const ivaUlt = ivaUltima(interesUlt);
@@ -198,6 +205,7 @@ function calcular() {
     interes1,
     iva1,
     cuota1,
+    cuota2,
     saldoPrev,
     interesUlt,
     ivaUlt,
@@ -214,15 +222,22 @@ async function copiarResultado() {
   const cuota1 = getEl("res-cuota1")?.textContent || "—";
   const cuotaFinal = getEl("res-cuota-final")?.textContent || "—";
   const cfteaTxt = getEl("res-cftea")?.textContent || "—";
-
+  
+  const resultado = calcular();
+  if (!resultado) return;
+  
+  const cuota2 = fmtARS(resultado.cuota2);
+  const montoFmt = fmtARS(resultado.M);
+  
   const texto = [
     "Simulación Sistema Francés",
     "",
-    `Monto: ${monto}`,
+    `Monto: ${montoFmt}`,
     `Plazo: ${plazo} meses`,
     "",
     `TNA: ${tnaTxt}`,
     `Cuota 1: ${cuota1}`,
+    `Cuota 2: ${cuota2}`,
     `Cuota final: ${cuotaFinal}`,
   ].join("\n");
 
