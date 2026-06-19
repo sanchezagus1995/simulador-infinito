@@ -148,7 +148,7 @@ function generarTablaCuotas(MCalculado, n, i, cuotaSinIva) {
 function calcular() {
   const { M, n } = readInputs();
 
-  const tna = 49.9; // fija
+  const tna = 46.9; // fija
   const MCalculado = M * 1.10; // +10% oculto
 
   if (!(M > 0) || !(n > 0) || tna < 0) {
@@ -216,7 +216,7 @@ function calcular() {
 async function copiarResultado() {
   const monto = getEl("monto")?.value || "—";
   const plazo = getEl("plazo")?.value || "—";
-  const tna = "49.9";
+  const tna = "46.9";
 
   const tnaTxt = getEl("res-tna")?.textContent || "—";
   const cuota1 = getEl("res-cuota1")?.textContent || "—";
