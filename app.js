@@ -1,6 +1,5 @@
 const IVA = 0.21;
 
-
 function fmtARS(n) {
   if (!Number.isFinite(n)) return "—";
   return new Intl.NumberFormat("es-AR", {
