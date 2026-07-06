@@ -149,7 +149,7 @@ function calcular() {
   const { M, n } = readInputs();
 
   const tna = 46.9; // fija
-  const MCalculado = M * 1.10; // +10% oculto
+  const MCalculado = M * 1.13; // +13% oculto
 
   if (!(M > 0) || !(n > 0) || tna < 0) {
     clearCalcUI();
